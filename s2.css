@@ -8,11 +8,17 @@ body{
     display: flex;
     flex-direction: row;
     border: 1px solid rgb(255, 255, 255, 0%);
-    border-radius: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 0;
+}
+
+.tab-container{
+    padding-right: .5rem;
+    text-align: right;
 }
 
 .tab-display{
-    background-color: rgb(223, 252, 255);
+    background-color: rgb(235, 249, 250);
     width: 40rem;
     height: 20rem;
 }
@@ -22,7 +28,6 @@ body{
     flex-direction: column;
     background-color: rgb(116, 153, 247);
     width: 5rem;
-
 }
 
 #tab2{
@@ -42,4 +47,8 @@ button{
 
 .button-tab1{
     background-color: rgb(78, 104, 170);
+}
+
+p:read-write{
+    border: none;
 }
