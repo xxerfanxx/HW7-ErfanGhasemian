@@ -1,4 +1,4 @@
-let fSize = 10;
+let fSize = 20;
 let sizeFormat = 'px';
 let exampleT = document.getElementById('exampleText');
 
