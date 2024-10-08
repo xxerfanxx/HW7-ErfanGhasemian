@@ -103,6 +103,10 @@ body {
     max-width: 26rem;
 }
 
+#history{
+    flex:1.2;
+}
+
 .orange-button{
     background-color: orange !important;
     color: white;

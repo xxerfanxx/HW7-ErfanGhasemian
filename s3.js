@@ -20,14 +20,29 @@ const btnC = document.getElementById('C');
 btn0.addEventListener('click',()=>{displayInput('0')});
 btn1.addEventListener('click',()=>{displayInput('1')});
 btn2.addEventListener('click',()=>{displayInput('2')});
+btn3.addEventListener('click',()=>{displayInput('3')});
+btn4.addEventListener('click',()=>{displayInput('4')});
+btn5.addEventListener('click',()=>{displayInput('5')});
+btn6.addEventListener('click',()=>{displayInput('6')});
+btn7.addEventListener('click',()=>{displayInput('7')});
+btn8.addEventListener('click',()=>{displayInput('8')});
+btn9.addEventListener('click',()=>{displayInput('9')});
 
 btnMulti.addEventListener('click',()=>{displayInput('*')});
+btnDiv.addEventListener('click',()=>{displayInput('/')});
+btnRemain.addEventListener('click',()=>{displayInput('%')});
+btnPlus.addEventListener('click',()=>{displayInput('+')});
+btnMinus.addEventListener('click',()=>{displayInput('-')});
+
 btnEq.addEventListener('click',calculateResult);
+btnC.addEventListener('click',clearEntry);
+btnAC.addEventListener('click',allClear);
 
-
+let calculationsHistory = [];
 let storedInputs = "";
 
 function displayInput(input){
+
     if (storedInputs.length <= 22){
         document.getElementById('displayedInput').textContent += input; 
         storeInput(input);
@@ -36,10 +51,30 @@ function displayInput(input){
 
 
 function storeInput(input){
+
     storedInputs += input;
 }
 
 
 function calculateResult(){
 
+    let result = eval(storedInputs);
+    calculationsHistory.push({'inputs' : storedInputs, 'output' : result})
+    document.getElementById('displayedOutput').textContent = result;
+}
+
+function allClear(){
+
+    storedInputs = "";
+
+    document.getElementById('displayedOutput').textContent = "";
+    document.getElementById('displayedInput').textContent = "";
+}
+
+function clearEntry(){
+
+    if (storedInputs.length > 0){
+        storedInputs = storedInputs.slice(0, -1);
+    }
+    document.getElementById('displayedInput').textContent = storedInputs;
 }
