@@ -98,7 +98,12 @@ body {
     background-color: #424242;
 }
 
-.equal{
+#equal{
     flex: 1.1;
     max-width: 26rem;
+}
+
+.orange-button{
+    background-color: orange !important;
+    color: white;
 }
