@@ -16,6 +16,7 @@ const btnDiv = document.getElementById('/');
 const btnRemain = document.getElementById('%');
 const btnAC = document.getElementById('AC');
 const btnC = document.getElementById('C');
+const btnHistory = document.getElementById('history');
 
 btn0.addEventListener('click',()=>{displayInput('0')});
 btn1.addEventListener('click',()=>{displayInput('1')});
@@ -37,6 +38,7 @@ btnMinus.addEventListener('click',()=>{displayInput('-')});
 btnEq.addEventListener('click',calculateResult);
 btnC.addEventListener('click',clearEntry);
 btnAC.addEventListener('click',allClear);
+btnHistory.addEventListener('click',toggleHistoryDisplay);
 
 let calculationsHistory = [];
 let storedInputs = "";
@@ -61,6 +63,10 @@ function calculateResult(){
     let result = eval(storedInputs);
     calculationsHistory.push({'inputs' : storedInputs, 'output' : result})
     document.getElementById('displayedOutput').textContent = result;
+
+    if(result){
+        appendHistory();
+    }
 }
 
 function allClear(){
@@ -78,3 +84,29 @@ function clearEntry(){
     }
     document.getElementById('displayedInput').textContent = storedInputs;
 }
+
+let i = 1;
+function appendHistory(){
+    const ele = document.getElementById('displayHistory');
+    const newLi = document.createElement('li');
+    
+        newLi.innerText +=  `input: ${calculationsHistory[i].inputs} \noutput: ${calculationsHistory[i].output}`;
+    i+=1;
+    ele.appendChild(newLi);
+}
+
+let historyIsHidden = true;
+function toggleHistoryDisplay(){
+    let historyDiv = document.getElementById("historyDiv");
+    console.log(historyIsHidden);
+    if(historyIsHidden){
+        historyIsHidden = false;
+        historyDiv.style.visibility = 'visible';
+    }
+    else{
+        historyIsHidden = true;
+        historyDiv.style.visibility = 'hidden';
+    }
+}  
+
+document.getElementById("historyDiv").style.visibility = 'hidden';
