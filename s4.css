@@ -50,6 +50,12 @@ body{
     color: white;
 }
 
+.buttons-row button:hover{
+    cursor: pointer;
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
 #resetButton{
     background-color: red;
 }
