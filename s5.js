@@ -33,6 +33,8 @@ for(i=0;i<questionBank.length;i++){
 
 let qIndex = 0;
 
+let timerIsStopped = false;
+
 const opt1Btn = document.getElementById('opt1');
 const opt2Btn = document.getElementById('opt2');
 const opt3Btn = document.getElementById('opt3');
@@ -113,6 +115,8 @@ function displaySelectedOption(){
 }
 
 function calculateResult(){
+
+    timerIsStopped = true;
     let result = 0;
 
     for(i=0;i<questionBank.length;i++){
@@ -130,4 +134,18 @@ function displayResult(result){
     document.getElementById('displayedResult').innerText = 'امتیاز نهایی شما : ' + result + ' از' + questionBank.length;
 }
 
+function setTimer(time = questionBank.length*10){
+    let secs = time;
+    let timer = setInterval(function(){
+        document.getElementById('displayedTimer').innerText = `زمان باقی مانده ${secs} ثانیه`;
+        secs--;
+        if(secs == -1 || timerIsStopped){
+            timerIsStopped = true;
+            calculateResult();
+            clearInterval(timer)
+        }
+    }, 1000);
+}
+
+setTimer();
 displayQuestion();
