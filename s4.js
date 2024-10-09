@@ -5,10 +5,12 @@ let storedcmSec;
 let historyCollection = [];
 
 const startBtn = document.getElementById('startButton');
-const stopBtn = document.getElementById('captureButon');
+const stopBtn = document.getElementById('captureButton');
+const resetBtn = document.getElementById('resetButton');
 
 startBtn.addEventListener('click', start);
-stopBtn.addEventListener('click', stop)
+stopBtn.addEventListener('click', stop);
+resetBtn.addEventListener('click', reset);
 
 function timer(){
     let cmSecDisplay = "00"
@@ -122,6 +124,9 @@ function appendHistory(){
     ele.appendChild(newLi);
 }
 
+function deleteChild() {
+    document.querySelector('ul').innerHTML = "";
+}
 
 function start(){
     if(timerIsStopped){
@@ -136,4 +141,10 @@ function stop(){
         appendHistory();
         timerIsStopped = true;
     }
+}
+
+function reset(){
+    deleteChild();
+    document.getElementById('displayedTime').innerText = '00:00:00'
+    historyCollection = [];
 }
