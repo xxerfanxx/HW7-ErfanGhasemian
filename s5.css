@@ -1,0 +1,82 @@
+body{
+    display: grid;
+    justify-content: center;
+    padding: 10rem;
+    background-color: rgb(242, 242, 242, 50%);
+}
+
+.question-box{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-sizing: border-box;
+    width: 70rem;
+    height: 43rem;
+    padding: .5rem;
+    padding-bottom: 2rem;
+    background-color: white;
+    border: 1px solid rgb(255, 255, 255, 0%);
+    border-radius: 2rem;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
+#displayedTimer{
+    font-size: 3rem;
+    margin: 1.5rem;
+    color: red;
+}
+
+#displayedQuestion{
+    font-size: 2rem;
+    margin: .7rem;
+    margin-top: 2rem;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 65rem;
+    height: 20rem;
+}
+
+.button-container button{
+    width: 65rem;
+    height: 4rem;
+    margin: auto;
+    border: 1px solid rgb(255, 255, 255, 0%);
+    border-radius: .5rem;
+    background-color: rgb(28, 130, 232);
+}
+
+.row-button-container{
+    display: flex;
+    flex-direction: row;
+    width: 65rem;
+    height: 5rem;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.row-button-container button{
+    width: 7rem;
+    height: 4rem;
+    font-size: 2rem;
+    border: 1px solid rgb(255, 255, 255, 0%);
+    border-radius: .5rem;
+}
+
+#backButton, #nextButton{
+    background-color: rgb(28, 189, 28);
+    color: white;
+}
+
+#endButton{
+    background-color: rgb(244, 22, 22);
+    color: white;
+}
+
+button:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
