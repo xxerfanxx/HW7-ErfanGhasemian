@@ -4,7 +4,13 @@ body{
     box-sizing: border-box;
     padding: 7rem;
     background-color: rgb(232, 232, 232);
+
 }
+
+/* @font-face{
+    font-family:'digital-clock-font';
+    src: url('https://fonts.googleapis.com/css?family=Orbitron');
+} */
 
 .stopwatch{
     display: flex;
@@ -31,6 +37,7 @@ body{
     width: 30rem;
     height: 10rem;
     font-size: 5rem;
+    font-family: 'Orbitron';
 }
 
 .buttons-row{
