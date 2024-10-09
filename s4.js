@@ -1,5 +1,7 @@
 let timerIsStopped = true;
-let storedTime = "";
+let storedMin;
+let storedSec;
+let storedcmSec;
 
 const startBtn = document.getElementById('startButton');
 const stopBtn = document.getElementById('captureButon');
@@ -18,10 +20,12 @@ function timer(){
 
     let timer = setInterval(function(){
         
-        document.getElementById('displayedTime').innerText=`${minsDisplay}:${secsDisplay}:${cmSec}`;
-        console.log(cmSecDisplay);
+        document.getElementById('displayedTime').innerText=`${minsDisplay}:${secsDisplay}:${cmSec-1}`;
+        storedMin = mins;
+        storedSec = secs;
+        storedcmSec = cmSec;
+
         if (timerIsStopped) {
-            storedTime = `${minsDisplay}:${secsDisplay}:${cmSecDisplay}`;
             clearInterval(timer);
         }
         else{
@@ -75,6 +79,47 @@ function timer(){
     }, 10);
 }
 
+function appendHistory(){
+    const ele = document.getElementById('captures');
+    const newLi = document.createElement('li');
+
+    let storedTime = "";
+
+    if(storedMin < 10 && storedMin > 0){
+        storedTime += '0' + storedMin;
+    }
+    else if (storedMin == 0){
+        storedTime += '00'
+    }
+    else{
+        storedTime += storedMin;
+    }
+
+    if(storedSec < 10 && storedSec > 0){
+        storedTime += ':0' + storedSec;
+    }
+    else if (storedSec == 0){
+        storedTime += ':00'
+    }
+    else{
+        storedTime += ':' + storedSec;
+    }
+
+    if(storedcmSec < 10 && storedcmSec > 0){
+        storedTime += ':0' + storedcmSec;
+    }
+    else if (storedcmSec == 0){
+        storedTime += ':00'
+    }
+    else{
+        storedTime += ':' + storedcmSec;
+    }
+    
+        newLi.innerText +=  `${storedTime}`;
+
+    ele.appendChild(newLi);
+}
+
 
 function start(){
     if(timerIsStopped){
@@ -86,6 +131,7 @@ function start(){
 
 function stop(){
     if(!timerIsStopped){
+        appendHistory();
         timerIsStopped = true;
     }
 }
