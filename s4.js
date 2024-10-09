@@ -2,6 +2,7 @@ let timerIsStopped = true;
 let storedMin;
 let storedSec;
 let storedcmSec;
+let historyCollection = [];
 
 const startBtn = document.getElementById('startButton');
 const stopBtn = document.getElementById('captureButon');
@@ -116,6 +117,7 @@ function appendHistory(){
     }
     
         newLi.innerText +=  `${storedTime}`;
+        historyCollection.push(storedTime);
 
     ele.appendChild(newLi);
 }
