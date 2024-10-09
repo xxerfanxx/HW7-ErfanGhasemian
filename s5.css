@@ -81,3 +81,19 @@ button:hover{
     cursor: pointer;
     opacity: 0.9;
 }
+
+.result-container{
+    display: none;
+    margin: auto;
+    margin-top: 3rem;
+    width: 70rem;
+    height: 10rem;
+    justify-content: center;
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(34, 157, 0);
+    background-color: white;
+    border: 1px solid rgb(255, 255, 255, 0%);
+    border-radius: 2rem;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}

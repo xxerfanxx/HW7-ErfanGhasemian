@@ -113,19 +113,21 @@ function displaySelectedOption(){
 }
 
 function calculateResult(){
-    disableTest();
-}
+    let result = 0;
 
-function disableTest(){
-
-    document.getElementById("questionBox").disabled = true;
-    var nodes = document.getElementById("questionBox").getElementsByTagName('*');
-    for(var i = 0; i < nodes.length; i++){
-        nodes[i].disabled = true;
+    for(i=0;i<questionBank.length;i++){
+        if(storedAnswers[i] == questionBank[i].answer){
+            result++;
+        }
     }
 
-    document.getElementById('questionBox').style.opacity = '0.5'
+    displayResult(result);
+}
 
- }
+function displayResult(result){
+    document.getElementById('resultContainer').style.display = 'block';
+    document.getElementById('questionBox').style.display = 'none'
+    document.getElementById('displayedResult').innerText = 'امتیاز نهایی شما : ' + result + ' از' + questionBank.length;
+}
 
 displayQuestion();
