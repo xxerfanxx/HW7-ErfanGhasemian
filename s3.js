@@ -69,11 +69,15 @@ function calculateResult(){
 
     calculationsHistory.push({'inputs' : storedInputs, 'output' : result})
     document.getElementById('displayedOutput').textContent = result;
+    document.getElementById('displayedInput').textContent = result;
 
 
     if(result){
         appendHistory();
     }
+
+    storedInputs = "";
+    storedInputs += result;
 }
 
 function evaluateExpression(expression) {
