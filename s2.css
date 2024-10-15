@@ -30,6 +30,7 @@ body{
     width: 5rem;
 }
 
+
 #tab2{
     display: none;
 }
@@ -45,10 +46,202 @@ button{
     height: 2rem;
 }
 
-.button-tab1{
+#btnTab1{
     background-color: rgb(78, 104, 170);
 }
 
 p:read-write{
     border: none;
+}
+
+@media only screen and (min-width : 400px) and (max-width : 780px){
+    html{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        display: grid;
+        justify-content: center;
+    }
+    
+    .tabs-container{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-right: 10px;
+        margin-left: 10px;
+        border: 1px solid rgb(255, 255, 255, 0%);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 0;
+        width: 600px;
+        margin: auto;
+    }
+    
+    .tab-container{
+        padding-right: .5rem;
+        text-align: right;
+    }
+    
+    .tab-display{
+        background-color: rgb(235, 249, 250);
+        width: 600px;
+        height: 900px;
+    }
+    
+    .button-container{
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(116, 153, 247);
+        width: 600px;
+    }
+    
+    #tab2{
+        display: none;
+    }
+    
+    #tab3{
+        display: none;
+    }
+    
+    button{
+        text-decoration: none;
+        background-color: rgb(116, 153, 247);
+        border: none;
+        height: 2rem;
+    }
+    
+    #btnTab1{
+        background-color: rgb(78, 104, 170);
+    }
+    
+    p:read-write{
+        border: none;
+    }
+}
+
+@media only screen and (max-width : 600px){
+    html{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        display: grid;
+        justify-content: center;
+    }
+    
+    .tabs-container{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-right: 10px;
+        margin-left: 10px;
+        border: 1px solid rgb(255, 255, 255, 0%);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 0;
+        width: 350px;
+        margin: auto;
+    }
+    
+    .tab-container{
+        padding-right: .5rem;
+        text-align: right;
+    }
+    
+    .tab-display{
+        background-color: rgb(235, 249, 250);
+        width: 350px;
+        height: 900px;
+    }
+    
+    .button-container{
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(116, 153, 247);
+        width: 350px;
+    }
+    
+    #tab2{
+        display: none;
+    }
+    
+    #tab3{
+        display: none;
+    }
+    
+    button{
+        text-decoration: none;
+        background-color: rgb(116, 153, 247);
+        border: none;
+        height: 2rem;
+    }
+    
+    #btnTab1{
+        background-color: rgb(78, 104, 170);
+    }
+    
+    p:read-write{
+        border: none;
+    }
+}
+
+@media only screen and (max-width : 400px){
+    html{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        display: grid;
+        justify-content: center;
+    }
+    
+    .tabs-container{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-right: 10px;
+        margin-left: 10px;
+        border: 1px solid rgb(255, 255, 255, 0%);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 0;
+        width: 300px;
+        margin: auto;
+    }
+    
+    .tab-container{
+        padding-right: .5rem;
+        text-align: right;
+    }
+    
+    .tab-display{
+        background-color: rgb(235, 249, 250);
+        width: 300px;
+        height: 900px;
+    }
+    
+    .button-container{
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(116, 153, 247);
+        width: 300px;
+    }
+    
+    #tab2{
+        display: none;
+    }
+    
+    #tab3{
+        display: none;
+    }
+    
+    button{
+        text-decoration: none;
+        background-color: rgb(116, 153, 247);
+        border: none;
+        height: 2rem;
+    }
+    
+    #btnTab1{
+        background-color: rgb(78, 104, 170);
+    }
+    
+    p:read-write{
+        border: none;
+    }
 }

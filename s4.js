@@ -22,8 +22,9 @@ function timer(){
     
 
     let timer = setInterval(function(){
-        
-        document.getElementById('displayedTime').innerText=`${minsDisplay}:${secsDisplay}:${cmSec-1}`;
+        if(!timerIsStopped){
+            document.getElementById('displayedTime').innerText=`${minsDisplay}:${secsDisplay}:${cmSec-1}`;
+        }
         storedMin = mins;
         storedSec = secs;
         storedcmSec = cmSec;
@@ -46,7 +47,7 @@ function timer(){
             }
             else{
                 cmSec = 0;
-                if(secs < 60){
+                if(secs < 59){
                     secs++;
                     if(secs < 10 && secs > 0){
                         secsDisplay = '0' + secs;
@@ -61,7 +62,7 @@ function timer(){
                 else{
                     secs = 0;
                     secsDisplay = '00';
-                    if(mins < 60){
+                    if(mins < 59){
                         mins++;
                         if(mins < 10 && mins > 0){
                             minsDisplay = '0' + mins;
@@ -139,12 +140,12 @@ function start(){
 function stop(){
     if(!timerIsStopped){
         appendHistory();
-        timerIsStopped = true;
     }
 }
 
 function reset(){
     deleteChild();
-    document.getElementById('displayedTime').innerText = '00:00:00'
     historyCollection = [];
+    timerIsStopped = true;
+    document.getElementById('displayedTime').innerText = '00:00:00';
 }

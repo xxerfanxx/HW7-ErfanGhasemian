@@ -52,21 +52,92 @@ function displayInput(input){
 }
 
 
-function storeInput(input){
+function storeInput(input, code = 0){
 
-    storedInputs += input;
+    if(code){
+        storedInputs = Number(input);
+    }
+    else{
+        storedInputs += input;
+    }
 }
 
 
 function calculateResult(){
 
-    let result = eval(storedInputs);
+    let result = evaluateExpression(storedInputs);
+
     calculationsHistory.push({'inputs' : storedInputs, 'output' : result})
     document.getElementById('displayedOutput').textContent = result;
+
 
     if(result){
         appendHistory();
     }
+}
+
+function evaluateExpression(expression) {
+    const ops = {
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+        '*': (a, b) => a * b,
+        '/': (a, b) => a / b,
+        '%': (a, b) => a % b,
+    };
+
+    function parseExpression(expr) {
+        const values = [];
+        const opsStack = [];
+        let i = 0;
+
+        while (i < expr.length) {
+            if (isDigit(expr[i])) {
+                let num = 0;
+                while (i < expr.length && isDigit(expr[i])) {
+                    num = num * 10 + parseInt(expr[i]);
+                    i++;
+                }
+                values.push(num);
+            } else if (expr[i] in ops) {
+                while (opsStack.length && precedence(opsStack[opsStack.length - 1]) >= precedence(expr[i])) {
+                    applyOperator(opsStack, values);
+                }
+                opsStack.push(expr[i]);
+                i++;
+            } else {
+                console.log('invalid expression');
+            }
+        }
+
+        while (opsStack.length) {
+            applyOperator(opsStack, values);
+        }
+
+        return values[0];
+    }
+
+    function precedence(op) {
+        if (op === '+' || op === '-') {
+            return 1;
+        }
+        if (op === '*' || op === '/' || op === '%') {
+            return 2;
+        }
+        return 0;
+    }
+
+    function applyOperator(opsStack, values) {
+        const op = opsStack.pop();
+        const right = values.pop();
+        const left = values.pop();
+        values.push(ops[op](left, right));
+    }
+
+    function isDigit(char) {
+        return /\d/.test(char);
+    }
+
+    return parseExpression(expression);
 }
 
 function allClear(){
